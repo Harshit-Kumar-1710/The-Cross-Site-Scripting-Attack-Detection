@@ -1,0 +1,23 @@
+[
+    {
+        "form_field": "family",
+        "field_type": "hidden",
+        "html_feature": "<i>sample</i>",
+        "js_feature": "var test = 1;",
+        "token": "FjEiak3M"
+    },
+    {
+        "form_field": "search",
+        "field_type": "search",
+        "html_feature": "<i>sample</i>",
+        "js_feature": "console.log('benign')",
+        "token": "PFF9BPAy"
+    },
+    {
+        "form_field": "go",
+        "field_type": "hidden",
+        "html_feature": "<span>safe</span>",
+        "js_feature": "var test = 1;",
+        "token": "kruet1c0"
+    }
+]
