@@ -3,7 +3,7 @@ import json
 # Function to generate rules from injected features
 def generate_rules(injected_features):
     try:
-        # Create an empty list to store the generated rules
+        # Create a list to store the generated rules
         rules = []
 
         # Iterate through the injected features and create rules
@@ -17,7 +17,7 @@ def generate_rules(injected_features):
             }
             rules.append(rule)
 
-        # Write the generated rules to a JSON file
+        # Write the rules to a JSON file
         rules_path = "rules.json"
         with open(rules_path, "w", encoding="utf-8") as f:
             json.dump(rules, f, indent=4)
@@ -27,8 +27,11 @@ def generate_rules(injected_features):
     except Exception as e:
         print(f"Error generating rules: {e}")
 
+# -------------------------------
+# Only run this part for testing
+# -------------------------------
 if __name__ == "__main__":
-    # Example feature list for testing
+    # Example features for test run
     injected_features = [
         {
             "form_field": "username",
@@ -45,4 +48,5 @@ if __name__ == "__main__":
             "token": "xyz456"
         }
     ]
+
     generate_rules(injected_features)

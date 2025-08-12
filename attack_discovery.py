@@ -1,4 +1,5 @@
 import json
+from detection_phase.feature_extractor import extract_js_features_from_response
 def load_rules(rules_path="rules.json"):
     try:
         with open(rules_path, "r") as f:
@@ -34,3 +35,14 @@ def perform_attack_discovery(scanned_features, rules_path="rules.json"):
         detect_deviation(scanned_features, rules_path)
     except Exception as e:
         print(f"Error in detecting deviations: {e}")
+
+def analyze_http_response(response_text: str) -> dict:
+    extracted_features = extract_js_features_from_response(response_text)
+
+    results = {
+        "encoded_variants_detected": True,  # Simulate
+        "tag_context_result": (1, 0),
+        "attribute_context_result": (1, 1),
+        "extracted_features": extracted_features
+    }
+    return results

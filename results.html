@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan Results</title>
+</head>
+<body>
+    <h1>Results for {{ url }}</h1>
+
+    {% if error %}
+        <p style="color: red;">Error: {{ error }}</p>
+    {% else %}
+        <h3>Extracted JavaScript Behavior Features:</h3>
+        <ul>
+        {% for key, value in result.get('features', {}).items() %}
+            <li><strong>{{ key }}</strong>: {{ value }}</li>
+        {% endfor %}
+        </ul>
+
+        <h3>XSS Deviation Detection:</h3>
+        <ul>
+            <li><strong>Encoded Variants Detected:</strong> {{ result.get('encoded_detected') }}</li>
+            <li><strong>Tag Context Result:</strong> {{ result.get('tag_context') }}</li>
+            <li><strong>Attribute Context Result:</strong> {{ result.get('attribute_context') }}</li>
+        </ul>
+    {% endif %}
+    <a href="/">Scan another URL</a>
+</body>
+</html>

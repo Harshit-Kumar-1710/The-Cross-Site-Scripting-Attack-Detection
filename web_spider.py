@@ -130,6 +130,12 @@ inject_benign_features(url)
 # Start Deviation Detection Phase
 print("\nStarting HTTP Response Deviation Detection Phase...")
 from detection_phase.http_response_deviation_detector import detect_xss_deviation
-detect_xss_deviation(url, "XSS")
+from detection_phase.http_response_deviation_detector import analyze_url_response
+
+if url and url.startswith(('http://', 'https://')):
+    analyze_url_response(url)
+else:
+    print("Invalid URL, cannot analyze.")
+
 
 

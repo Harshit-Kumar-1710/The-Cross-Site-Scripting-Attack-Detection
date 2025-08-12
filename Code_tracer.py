@@ -15,7 +15,7 @@ def parse_js(js_code):
         function parseCode(code) {
             return JSON.stringify(esprima.parseScript(code, { loc: true }));
         }
-    """)
+    """)  
     ast_json = context.call("parseCode", js_code)
     return json.loads(ast_json)
 

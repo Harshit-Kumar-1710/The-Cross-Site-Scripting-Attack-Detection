@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XSS Test Site</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/search?q=<script>alert('XSS')</script>">Search</a> |
+        <a href="/profile">Profile</a> |
+        <a href="/comments">Comments</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
